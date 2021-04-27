@@ -1,12 +1,13 @@
 package com.trabalho.pizzariaqueijada;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-    public Connection getConnection(){
+    public static Connection getConnection(){
 
         String url = "jdbc:postgresql://localhost:5432/pizzaria_queijada";
         String user = "postgres";
@@ -19,5 +20,6 @@ public class ConnectionFactory {
         }
 
     }
+
 
 }

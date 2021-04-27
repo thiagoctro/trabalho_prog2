@@ -3,15 +3,15 @@ package com.trabalho.pizzariaqueijada.model;
 public class Produto {
 
     private int codigo;
-    private String produto;
+    private String nome;
     private double precoUnitario;
 
     public Produto() {
     }
 
-    public Produto(int codigo, String produto, double precoUnitario) {
+    public Produto(int codigo, String nome, double precoUnitario) {
         this.codigo = codigo;
-        this.produto = produto;
+        this.nome = nome;
         this.precoUnitario = precoUnitario;
     }
 
@@ -23,12 +23,12 @@ public class Produto {
         this.codigo = codigo;
     }
 
-    public String getProduto() {
-        return produto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public double getPrecoUnitario() {
