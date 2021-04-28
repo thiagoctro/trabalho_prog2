@@ -3,7 +3,6 @@ package com.trabalho.pizzariaqueijada;
 import com.trabalho.pizzariaqueijada.dao.FuncionarioDAO;
 import com.trabalho.pizzariaqueijada.model.Funcionario;
 
-import java.sql.Connection;
 
 public class MainClass {
 
