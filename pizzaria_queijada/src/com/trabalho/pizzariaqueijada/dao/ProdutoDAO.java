@@ -1,6 +1,7 @@
 package com.trabalho.pizzariaqueijada.dao;
 
 import com.trabalho.pizzariaqueijada.ConnectionFactory;
+import com.trabalho.pizzariaqueijada.model.Funcionario;
 import com.trabalho.pizzariaqueijada.model.Produto;
 
 import java.sql.Connection;
@@ -82,6 +83,28 @@ public class ProdutoDAO {
         }
 
         return list;
+    }
+
+    public Produto getProduto( int codigo ){
+        String sql = "SELECT * FROM produtos WHERE codigo = ? ";
+        Produto p = new Produto();
+        try( PreparedStatement stmt = conn.prepareStatement( sql ) ){
+
+            stmt.setInt(1, codigo );
+            ResultSet rs = stmt.executeQuery();
+
+            if ( rs.next() ){
+                p.setCodigo( rs.getInt( "codigo" ) );
+                p.setNome( rs.getString( "nome" ) );
+                p.setPrecoUnitario( rs.getDouble( "preco" ) );
+
+            }
+            rs.close();
+
+        } catch ( SQLException e ){
+            throw new RuntimeException( e );
+        }
+        return p;
     }
 
 }

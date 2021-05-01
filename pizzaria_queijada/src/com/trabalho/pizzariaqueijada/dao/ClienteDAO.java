@@ -2,6 +2,7 @@ package com.trabalho.pizzariaqueijada.dao;
 
 import com.trabalho.pizzariaqueijada.ConnectionFactory;
 import com.trabalho.pizzariaqueijada.model.Cliente;
+import com.trabalho.pizzariaqueijada.model.Funcionario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -85,6 +86,29 @@ public class ClienteDAO {
         }
 
         return list;
+    }
+
+    public Cliente getCliente( int codigo ){
+        String sql = "SELECT * FROM clientes WHERE codigo = ? ";
+        Cliente c = new Cliente();
+
+        try( PreparedStatement stmt = conn.prepareStatement( sql ) ){
+
+            stmt.setInt(1, codigo );
+            ResultSet rs = stmt.executeQuery();
+
+            if ( rs.next() ){
+                c.setCodigo( rs.getInt( "codigo" ) );
+                c.setNome( rs.getString( "nome" ) );
+                c.setEndereco( rs.getString( "endereco" ) );
+                c.setTel( rs.getString( "tel" ) );
+            }
+            rs.close();
+
+        } catch ( SQLException e ){
+            throw new RuntimeException( e );
+        }
+        return c;
     }
 
 }

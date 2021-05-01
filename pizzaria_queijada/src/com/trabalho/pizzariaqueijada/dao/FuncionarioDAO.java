@@ -86,5 +86,27 @@ public class FuncionarioDAO {
         return list;
     }
 
+    public Funcionario getFuncionario( int matricula ){
+        String sql = "SELECT * FROM funcionarios WHERE matricula = ? ";
+        Funcionario f = new Funcionario();
+        try( PreparedStatement stmt = conn.prepareStatement( sql ) ){
+
+            stmt.setInt(1, matricula );
+            ResultSet rs = stmt.executeQuery();
+
+            if ( rs.next() ){
+                f.setMatricula( rs.getInt( "matricula" ) );
+                f.setNome( rs.getString( "nome" ) );
+                f.setEndereco( rs.getString( "endereco" ) );
+                f.setSenha( rs.getString( "senha" ) );
+            }
+            rs.close();
+
+        } catch ( SQLException e ){
+            throw new RuntimeException( e );
+        }
+        return f;
+    }
+
 
 }

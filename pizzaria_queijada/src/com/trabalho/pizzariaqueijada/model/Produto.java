@@ -38,4 +38,13 @@ public class Produto {
     public void setPrecoUnitario(double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", precoUnitario=" + precoUnitario +
+                '}';
+    }
 }

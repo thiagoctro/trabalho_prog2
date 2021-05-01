@@ -48,4 +48,14 @@ public class Cliente {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", tel='" + tel + '\'' +
+                '}';
+    }
 }
